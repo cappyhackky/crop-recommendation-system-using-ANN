@@ -29,11 +29,11 @@ This is an advanced Artificial Neural Network (ANN) based system designed to ass
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/cropsage.git
+    git clone https://github.com/cappyhackky/crop-recommendation-system-using-ANN.git
     ```
 2. **Navigate to the project directory:**
     ```bash
-    cd cropsage
+    cd crop-recommendation-system-using-ANN
     ```
 3. **Install the required packages:**
     ```bash
@@ -56,33 +56,3 @@ This is an advanced Artificial Neural Network (ANN) based system designed to ass
 - `crop_recom_ann.h5`: The trained ANN model file.
 - `templates/index.html`: HTML template for the web interface.
 - `static/`: Directory for static files (CSS, JavaScript).
-
-## Example Code
-
-```python
-import numpy as np
-from tensorflow.keras.models import load_model
-
-# Load the trained model
-model = load_model('crop_recom_ann.h5')
-
-# Example input data
-input_data = np.array([[80, 40, 20, 30, 6.5, 200, 85]])
-
-# Predict crop suitability
-prediction = model.predict(input_data)
-predicted_class_index = np.argmax(prediction, axis=-1)[0]
-
-# Crop dictionary
-crop_dictionary = {
-    20: 'rice', 11: 'maize', 3: 'chickpea', 9: 'kidneybeans',
-    18: 'pigeonpeas', 13: 'mothbeans', 14: 'mungbean', 2: 'blackgram',
-    10: 'lentil', 19: 'pomegranate', 1: 'banana', 12: 'mango',
-    7: 'grapes', 21: 'watermelon', 15: 'muskmelon', 0: 'apple',
-    16: 'orange', 17: 'papaya', 4: 'coconut', 6: 'cotton',
-    8: 'jute', 5: 'coffee'
-}
-
-# Get the predicted crop
-predicted_crop = crop_dictionary.get(predicted_class_index, "Unknown")
-print(f"Recommended Crop: {predicted_crop}")
